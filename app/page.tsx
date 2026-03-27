@@ -6,6 +6,8 @@ import CanvasScene from "../components/CanvasScene";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 
+export const dynamic = "force-dynamic";
+
 export default function Page() {
   const bookingRef = useRef<HTMLDivElement | null>(null);
   const [isMobile, setIsMobile] = useState(false);
