@@ -16,7 +16,7 @@ Dark, cinematic landing page example for SSD Studio built with **Next.js (App Ro
    # or
    yarn dev
    ```
-3. Open http://localhost:3000 to view the site.
+3. Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ## Project structure
 
