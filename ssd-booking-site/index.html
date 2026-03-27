@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- The same code from canvas with the new links inserted -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSD STUDIO | Free Shoot Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://photos.app.goo.gl/bNgSksJqQBbYZCtS6');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 500px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      margin-top: 40px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+    h2 {
+      text-align: center;
+      font-size: 16px;
+      font-weight: normal;
+      margin-bottom: 20px;
+      color: #555;
+    }
+    p.intro {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #000;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SSD STUDIO | Book a Free Shoot</h1>
+    <h2>Focus on what matters.</h2>
+    <p class="intro">
+      I'm just starting out—and I want to build my business by creating real art for real people.<br>
+      For a limited time, all shoots are <strong>100% free</strong>.<br><br>
+      <strong>Note:</strong> Pickup and drop-off based on shoot location is to be arranged by the client.<br><br>
+      📩 Email: <a href="mailto:ssdstudio01@gmail.com">ssdstudio01@gmail.com</a><br>
+      📞 Phone: <a href="tel:+16462214353">+1 (646) 221-4353</a>
+    </p>
+
+    <form action="https://formspree.io/f/xqaqkdvy" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone">
+
+      <label for="type">Type of Shoot</label>
+      <select id="type" name="type">
+        <option>Portrait</option>
+        <option>Couple</option>
+        <option>Event</option>
+        <option>Fashion</option>
+        <option>Professional Headshot</option>
+      </select>
+
+      <label for="datetime">Preferred Date & Time</label>
+      <input type="datetime-local" id="datetime" name="datetime">
+
+      <label for="location">Location Preference</label>
+      <input type="text" id="location" name="location">
+
+      <label for="notes">Anything We Should Know?</label>
+      <textarea id="notes" name="notes"></textarea>
+
+      <label for="package">Choose a Package</label>
+      <select id="package" name="package">
+        <option>Basic (30 mins, 10 edits)</option>
+        <option>Standard (1 hour, 20 edits + short video)</option>
+        <option>Premium (2+ hours, full edits + reels)</option>
+        <option>Custom</option>
+      </select>
+
+      <label>
+        <input type="checkbox" name="terms" required>
+        I agree to the <a href='terms.html' target='_blank'>terms and conditions</a>, <a href='privacy.html' target='_blank'>privacy policy</a>.
+      </label>
+
+      <button type="submit">Submit Booking</button>
+    </form>
+  </div>
+</body>
+</html>
