@@ -1,0 +1,36 @@
+# Setup steps for the GitHub Copilot coding agent.
+#
+# Why git clean -ffdx / clean: true is necessary:
+#   The Copilot agent runs in a shared runner workspace that may retain
+#   untracked files (e.g. LICENSE, .github/agents/my-agent.agent.md) from a
+#   previous step or a prior run. When the agent then tries to switch to
+#   another branch or ref, Git refuses with:
+#     "error: The following untracked working tree files would be overwritten
+#      by checkout"
+#   Using `clean: true` on actions/checkout and running `git clean -ffdx`
+#   before any ref-switching removes those untracked files so that checkout
+#   always succeeds. This also prevents the cascade failure where the agent
+#   tries to recover by writing a raw binary .git/index via apply_patch, which
+#   corrupts the index (fatal: unknown index entry format 0x61670000).
+#
+# See: https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/customizing-copilot-coding-agent#configuring-setup-steps
+
+name: "Copilot Setup Steps"
+
+on:
+  workflow_call:
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure clean workspace before checkout
+        shell: bash
+        run: |
+          git rev-parse --git-dir > /dev/null 2>&1 && git reset --hard && git clean -ffdx || true
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          clean: true
