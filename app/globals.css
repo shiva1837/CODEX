@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: radial-gradient(120% 120% at 10% 10%, #0f1a30 0%, #050913 60%, #02040a 100%);
+  background-color: #050913;
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/30;
+}
+
+.frosted {
+  @apply bg-white/5 backdrop-blur-3xl border border-white/5;
+}
+
+.glow-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(125, 216, 255, 0.4), rgba(123, 155, 255, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glow-border:hover::before,
+.glow-border:focus-visible::before {
+  opacity: 1;
+}
+
+.magnetic {
+  transition: transform 0.2s ease;
+}
+
+.magnetic:hover {
+  transform: translateY(-1px) scale(1.01);
+}
+
+.gradient-mask {
+  mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+}
