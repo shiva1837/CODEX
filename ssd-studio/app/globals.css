@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(98, 210, 255, 0.08), transparent 25%),
+    radial-gradient(circle at 80% 10%, rgba(255, 140, 191, 0.08), transparent 22%),
+    radial-gradient(circle at 50% 90%, rgba(98, 210, 255, 0.05), transparent 25%),
+    #050505;
+  color: #eef1f5;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(98, 210, 255, 0.25);
+  color: #e5f7ff;
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+.glow-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -120%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(98, 210, 255, 0.35),
+    rgba(255, 140, 191, 0.25),
+    rgba(98, 210, 255, 0.35)
+  );
+  animation: rotate 14s linear infinite;
+  z-index: 0;
+}
+
+.glow-border > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+input,
+textarea,
+select {
+  background: transparent;
+}
